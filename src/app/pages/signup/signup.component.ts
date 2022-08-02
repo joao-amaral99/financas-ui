@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NotifierService } from 'angular-notifier';
-import { SignupService } from 'src/app/services/signup.service';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'signup',
@@ -22,14 +22,14 @@ export class SignupComponent implements OnInit {
 
   constructor(
     private readonly formBuilder: FormBuilder,
-    private readonly signupService: SignupService,
+    private readonly authService: AuthService,
     private readonly notifier: NotifierService
   ) {}
 
   ngOnInit(): void {}
 
   onSubmit(): void {
-    this.signupService.create(this.form.value).subscribe({
+    this.authService.create(this.form.value).subscribe({
       next: () => {
         this.notifier.notify('success', 'Cadastrado com sucesso!');
         this.form.reset();

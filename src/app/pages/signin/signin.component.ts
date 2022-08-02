@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { SignupService } from 'src/app/services/signup.service';
+import { AuthService } from 'src/app/services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'signin',
@@ -14,16 +15,18 @@ export class SigninComponent implements OnInit {
   });
 
   constructor(
-    private readonly signupService: SignupService,
-    private readonly formBuilder: FormBuilder
+    private readonly authService: AuthService,
+    private readonly formBuilder: FormBuilder,
+    private readonly router: Router
   ) {}
 
   ngOnInit(): void {}
 
   onSubmit(): void {
-    this.signupService.login(this.form.value).subscribe({
+    this.authService.login(this.form.value).subscribe({
       next: (response) => {
         console.log(response);
+        this.router.navigate(['/home']);
         this.form.reset();
       },
       error: (error) => console.log(error),
