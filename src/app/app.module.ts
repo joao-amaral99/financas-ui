@@ -9,9 +9,10 @@ import { AppComponent } from './app.component';
 // Modules
 import { SignupModule } from './pages/signup/signup.module';
 import { SigninModule } from './pages/signin/signin.module';
+import { HomeComponent } from './pages/home/home.component';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, HomeComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
