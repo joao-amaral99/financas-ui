@@ -1,0 +1,49 @@
+<main class="container">
+  <section class="about__text">
+    <h1>Controle suas finaças com a plataforma que entende do assunto.</h1>
+  </section>
+  <section class="form__signin">
+    <header class="header__text">
+      <h2>Login</h2>
+      <p>Faça o login e aproveite o melhor da plataforma!</p>
+    </header>
+    <section class="google__auth">
+      <button>
+        <img src="assets/google-icon.webp" alt="Imagem do ícone do google" />
+        Entre com o Google
+      </button>
+      <small>Ou faça o login com email</small>
+    </section>
+    <form class="form" [formGroup]="form" (ngSubmit)="onSubmit()">
+      <label for="email">Email<sup>*</sup></label>
+      <input
+        type="email"
+        id="email"
+        formControlName="email"
+        placeholder="example@example.com"
+      />
+      <label for="password">Password<sup>*</sup></label>
+      <input
+        type="password"
+        id="password"
+        formControlName="password"
+        placeholder="*********"
+      />
+      <section class="actions">
+        <div class="remember__user__data">
+          <input type="checkbox" id="remember" />
+          <label for="remember">Remember me</label>
+        </div>
+        <a routerLink="#">Forget password?</a>
+      </section>
+      <button class="submit__btn">Login</button>
+    </form>
+
+    <footer>
+      <span>
+        Ainda não tem uma conta?
+        <a routerLink="/signup">Criar uma conta</a>
+      </span>
+    </footer>
+  </section>
+</main>
