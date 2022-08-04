@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/services/auth.service';
 import { Router } from '@angular/router';
+import { NotifierService } from 'angular-notifier';
 
 @Component({
   selector: 'signin',
@@ -17,7 +18,8 @@ export class SigninComponent implements OnInit {
   constructor(
     private readonly authService: AuthService,
     private readonly formBuilder: FormBuilder,
-    private readonly router: Router
+    private readonly router: Router,
+    private readonly notifier: NotifierService
   ) {}
 
   ngOnInit(): void {}
@@ -25,11 +27,17 @@ export class SigninComponent implements OnInit {
   onSubmit(): void {
     this.authService.login(this.form.value).subscribe({
       next: (response) => {
-        console.log(response);
+        this.saveTokenIntoLocalStorage(JSON.stringify(response));
         this.router.navigate(['/home']);
         this.form.reset();
       },
-      error: (error) => console.log(error),
+      error: (response) => {
+        this.notifier.notify('error', response.error.message);
+      },
     });
+  }
+
+  saveTokenIntoLocalStorage(token: string): void {
+    localStorage.setItem('x-access-token', token);
   }
 }
