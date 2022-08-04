@@ -34,8 +34,8 @@ export class SignupComponent implements OnInit {
         this.notifier.notify('success', 'Cadastrado com sucesso!');
         this.form.reset();
       },
-      error: () =>
-        this.notifier.notify('error', 'Error ao efetivar o cadastrar!'),
+      error: (response) =>
+        this.notifier.notify('error', response.error.message),
     });
   }
 
