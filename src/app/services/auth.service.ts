@@ -16,7 +16,7 @@ export class AuthService {
     return this.http.post<User>(this.API, data);
   }
 
-  login(data: any): Observable<User> {
+  login(data: Partial<User>): Observable<User> {
     return this.http.post<User>(this.API_LOGIN, data);
   }
 }
