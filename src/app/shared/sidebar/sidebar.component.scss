@@ -1,0 +1,42 @@
+@import "../../../config-scss/rem-calc.scss";
+
+:host {
+  .sidebar {
+    background-color: var(--primary-color);
+    height: 100vh;
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 13vw;
+
+    h2 {
+      background: #1cd300;
+      background: repeating-radial-gradient(
+        circle farthest-corner at bottom left,
+        #1cd300 0%,
+        #405240 100%
+      );
+      font-size: rem-calc(36);
+      font-weight: 600;
+      margin: rem-calc(30) 0;
+      text-align: center;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    ul li {
+      margin: rem-calc(20) 0;
+
+      a {
+        color: var(--text-2-color);
+        display: block;
+        padding: rem-calc(15) rem-calc(30);
+
+        &:hover {
+          background-color: var(--hover-gray-color);
+          transition: 0.2s;
+        }
+      }
+    }
+  }
+}
