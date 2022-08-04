@@ -5,6 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 // Components
 import { AppComponent } from './app.component';
+import { SidebarComponent } from './shared/sidebar/sidebar.component';
 
 // Modules
 import { SignupModule } from './pages/signup/signup.module';
@@ -12,7 +13,7 @@ import { SigninModule } from './pages/signin/signin.module';
 import { HomeComponent } from './pages/home/home.component';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent],
+  declarations: [AppComponent, HomeComponent, SidebarComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -20,6 +21,7 @@ import { HomeComponent } from './pages/home/home.component';
     SigninModule,
     SignupModule,
   ],
+  exports: [SidebarComponent],
   providers: [],
   bootstrap: [AppComponent],
 })
