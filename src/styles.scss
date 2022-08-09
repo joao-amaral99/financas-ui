@@ -1,3 +1,6 @@
 @import "./config-scss/reset.scss";
 @import "./config-scss/variables.scss";
 @import "node_modules/angular-notifier/styles";
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
