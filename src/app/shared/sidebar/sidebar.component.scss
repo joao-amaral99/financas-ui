@@ -2,7 +2,10 @@
 
 :host {
   .sidebar {
-    background-color: var(--primary-color);
+    background-color: var(--black-color);
+    border-right: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
     height: 100vh;
     left: 0;
     position: fixed;
@@ -10,27 +13,64 @@
     width: 13vw;
 
     h2 {
-      background: #1cd300;
-      background: repeating-radial-gradient(
-        circle farthest-corner at bottom left,
-        #1cd300 0%,
-        #405240 100%
-      );
-      font-size: rem-calc(36);
+      align-items: center;
+      color: var(--text-1-color);
+      border-bottom: 1px solid var(--border-color);
+      display: flex;
+      font-size: rem-calc(28);
       font-weight: 600;
-      margin: rem-calc(30) 0;
+      padding: rem-calc(20) rem-calc(30);
       text-align: center;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+
+      .mat-icon {
+        align-items: center;
+        display: flex;
+        font-size: rem-calc(28);
+        margin-right: rem-calc(5);
+      }
     }
 
     ul li {
       margin: rem-calc(20) 0;
 
       a {
+        align-items: center;
         color: var(--text-2-color);
-        display: block;
+        display: flex;
         padding: rem-calc(15) rem-calc(30);
+
+        .mat-icon {
+          margin-right: rem-calc(10);
+        }
+
+        &:hover {
+          background-color: var(--hover-gray-color);
+          transition: 0.2s;
+        }
+      }
+    }
+
+    .sidebar__footer {
+      border-top: 1px solid var(--border-color);
+      bottom: rem-calc(30);
+      display: flex;
+      flex-direction: column;
+      padding: rem-calc(20) 0;
+      position: absolute;
+      width: 100%;
+
+      a {
+        align-items: center;
+        color: var(--text-2-color);
+        display: flex;
+        padding: rem-calc(15) rem-calc(30);
+
+        .mat-icon {
+          align-items: center;
+          display: flex;
+          font-size: rem-calc(20);
+          margin-right: rem-calc(10);
+        }
 
         &:hover {
           background-color: var(--hover-gray-color);
