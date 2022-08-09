@@ -2,7 +2,46 @@
 
 :host {
   .main {
-    width: 87vw;
+    background-color: var(--black-color);
+    height: 100%;
     margin-left: 13vw;
+    width: 87vw;
+  }
+
+  .card {
+    border-radius: rem-calc(7);
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    margin: rem-calc(50);
+  }
+
+  .card__info {
+    background-color: #161515;
+    border-right: 1px solid var(--border-color);
+    height: 100%;
+    padding: rem-calc(50) rem-calc(30);
+
+    h4 {
+      color: var(--text-3-color);
+      font-size: rem-calc(20);
+      margin-bottom: 30px;
+    }
+
+    p {
+      color: var(--text-2-color);
+      font-size: rem-calc(26);
+      font-weight: 500;
+    }
+  }
+
+  .card__info:nth-child(1) {
+    border-top-left-radius: rem-calc(10);
+    border-bottom-left-radius: rem-calc(10);
+  }
+
+  .card__info:nth-child(4) {
+    border-right: none;
+    border-top-right-radius: rem-calc(10);
+    border-bottom-right-radius: rem-calc(10);
   }
 }
