@@ -11,18 +11,19 @@
   .card {
     border-radius: rem-calc(7);
     display: grid;
+    gap: rem-calc(10);
     grid-template-columns: repeat(4, 1fr);
     margin: rem-calc(50);
   }
 
   .card__info {
     background-color: #161515;
-    border-right: 1px solid var(--border-color);
+    border-radius: rem-calc(10);
     height: 100%;
     padding: rem-calc(50) rem-calc(30);
 
     h4 {
-      color: var(--text-3-color);
+      color: var(--text-1-color);
       font-size: rem-calc(20);
       margin-bottom: 30px;
     }
@@ -34,14 +35,23 @@
     }
   }
 
-  .card__info:nth-child(1) {
-    border-top-left-radius: rem-calc(10);
-    border-bottom-left-radius: rem-calc(10);
+  .danger {
+    background-color: var(--red-1-color);
+    border: 3px solid var(--red-2-color);
   }
 
-  .card__info:nth-child(4) {
-    border-right: none;
-    border-top-right-radius: rem-calc(10);
-    border-bottom-right-radius: rem-calc(10);
+  .variable {
+    background-color: var(--blue-2-color);
+    border: 3px solid var(--blue-3-color);
+  }
+
+  .warning {
+    background-color: var(--yellow-1-color);
+    border: 3px solid var(--yellow-2-color);
+  }
+
+  .success {
+    background-color: var(--green-3-color);
+    border: 3px solid var(--green-2-color);
   }
 }
