@@ -35,7 +35,7 @@
 
       a {
         align-items: center;
-        color: var(--text-2-color);
+        color: var(--text-3-color);
         display: flex;
         padding: rem-calc(15) rem-calc(30);
 
@@ -45,6 +45,7 @@
 
         &:hover {
           background-color: var(--hover-gray-color);
+          color: var(--text-1-color);
           transition: 0.2s;
         }
       }
@@ -61,7 +62,7 @@
 
       a {
         align-items: center;
-        color: var(--text-2-color);
+        color: var(--text-3-color);
         display: flex;
         padding: rem-calc(15) rem-calc(30);
 
@@ -74,6 +75,7 @@
 
         &:hover {
           background-color: var(--hover-gray-color);
+          color: var(--text-1-color);
           transition: 0.2s;
         }
       }
