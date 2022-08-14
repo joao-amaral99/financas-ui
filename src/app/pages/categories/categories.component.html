@@ -1,0 +1,29 @@
+<sidebar></sidebar>
+<main class="main">
+  <app-header msg="Controle aqui suas categorias"></app-header>
+  <div class="container">
+    <form class="form" [formGroup]="form" (ngSubmit)="onSubmit()">
+      <div class="text__input">
+        <input
+          type="text"
+          formControlName="name"
+          placeholder="Cadastre uma nova categoria"
+        />
+      </div>
+      <button class="btn__new">Cadastrar</button>
+    </form>
+    <section class="categories">
+      <div class="category" *ngFor="let item of allCategories">
+        <p>{{ item.name }}</p>
+        <div class="controls">
+          <button class="btn__edit">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button class="btn__delete">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </div>
+      </div>
+    </section>
+  </div>
+</main>

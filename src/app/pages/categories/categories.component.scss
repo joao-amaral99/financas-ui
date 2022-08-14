@@ -1,0 +1,103 @@
+@import "../../../config-scss/rem-calc.scss";
+
+:host {
+  .main {
+    background-color: var(--black-color);
+    height: 100%;
+    margin-left: 13vw;
+    width: 87vw;
+  }
+
+  .container {
+    margin: 0 auto;
+    max-width: rem-calc(900);
+    width: 100%;
+  }
+
+  .form {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    margin-top: rem-calc(50);
+
+    .text__input {
+      width: 100%;
+
+      input {
+        background-color: var(--primary-color);
+        border: 1px solid var(--border-color);
+        border-radius: rem-calc(5);
+        color: var(--secondary-color);
+        font-size: rem-calc(16);
+        outline: none;
+        padding: rem-calc(8);
+        transition: 0.2s ease-in-out;
+        width: 100%;
+
+        &:focus {
+          background-color: var(--text-1-color);
+          box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.6);
+        }
+
+        &::placeholder {
+          color: var(--text-3-color);
+        }
+      }
+    }
+
+    .btn__new {
+      background-color: var(--green-1-color);
+      border: none;
+      border-radius: rem-calc(4);
+      color: var(--text-1-color);
+      cursor: pointer;
+      font-size: rem-calc(14);
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      margin-left: rem-calc(10);
+      padding: rem-calc(10);
+    }
+  }
+
+  .categories {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: rem-calc(50);
+    max-width: rem-calc(900);
+    width: 100%;
+
+    .category {
+      align-items: center;
+      display: flex;
+      justify-content: space-between;
+      background-color: var(--primary-color);
+      border: 1px solid var(--border-color);
+      border-radius: rem-calc(5);
+      margin: rem-calc(10) 0;
+      padding: rem-calc(8);
+      width: 100%;
+
+      p {
+        color: var(--text-1-color);
+        margin-left: rem-calc(10);
+      }
+
+      .controls {
+        button {
+          background-color: transparent;
+          border: none;
+          border-radius: rem-calc(5);
+          color: var(--text-1-color);
+          cursor: pointer;
+          margin: 0 rem-calc(5);
+
+          &:hover {
+            background-color: var(--hover-gray-color);
+          }
+        }
+      }
+    }
+  }
+}
