@@ -16,6 +16,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatIconModule } from '@angular/material/icon';
 import { CategoriesComponent } from './pages/categories/categories.component';
+import { ExpensesComponent } from './pages/expenses/expenses.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { CategoriesComponent } from './pages/categories/categories.component';
     SidebarComponent,
     HeaderComponent,
     CategoriesComponent,
+    ExpensesComponent,
   ],
   imports: [
     BrowserModule,
