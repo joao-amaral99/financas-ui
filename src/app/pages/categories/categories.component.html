@@ -13,13 +13,10 @@
       <button class="btn__new">Cadastrar</button>
     </form>
     <section class="categories">
-      <div class="category" *ngFor="let item of allCategories">
+      <div class="category" *ngFor="let item of allCategories; let i = index">
         <p>{{ item.name }}</p>
         <div class="controls">
-          <button class="btn__edit">
-            <mat-icon>edit</mat-icon>
-          </button>
-          <button class="btn__delete">
+          <button class="btn__delete" (click)="deleteCategory(item.id, i)">
             <mat-icon>delete</mat-icon>
           </button>
         </div>
