@@ -56,6 +56,11 @@
       letter-spacing: 0.5px;
       margin-left: rem-calc(10);
       padding: rem-calc(10);
+
+      &:hover {
+        box-shadow: 0 0 0 3px var(--green-3-color);
+        transition: 0.2s;
+      }
     }
   }
 
@@ -82,16 +87,23 @@
       p {
         color: var(--text-1-color);
         margin-left: rem-calc(10);
+
+        &::first-letter {
+          text-transform: uppercase;
+        }
       }
 
       .controls {
         button {
+          align-items: center;
           background-color: transparent;
           border: none;
           border-radius: rem-calc(5);
           color: var(--text-1-color);
           cursor: pointer;
+          display: flex;
           margin: 0 rem-calc(5);
+          padding: rem-calc(3);
 
           &:hover {
             background-color: var(--hover-gray-color);
