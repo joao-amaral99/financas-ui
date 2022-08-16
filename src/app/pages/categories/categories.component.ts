@@ -18,7 +18,7 @@ export class CategoriesComponent implements OnInit {
     private readonly formBuilder: FormBuilder
   ) {}
 
-  allCategories: Category[] = [];
+  allCategories: Array<Category> = [];
 
   ngOnInit(): void {
     this.getAllCategories();
@@ -36,6 +36,15 @@ export class CategoriesComponent implements OnInit {
       next: (response) => {
         this.allCategories.push(response);
         this.form.reset();
+      },
+      error: (error) => console.log(error),
+    });
+  }
+
+  deleteCategory(id: number | any, index: number) {
+    this.categoriesService.deleteCategory(id).subscribe({
+      next: (response) => {
+        this.allCategories.splice(index, 1);
       },
       error: (error) => console.log(error),
     });
