@@ -1,1 +1,34 @@
-<p>expenses works!</p>
+<sidebar></sidebar>
+<main class="main">
+  <app-header msg="Controle aqui suas despesas"></app-header>
+  <div class="container">
+    <section class="form__container">
+      <h3>Cadastre uma nova despesa</h3>
+      <form class="form" [formGroup]="form" (ngSubmit)="onSubmit()">
+        <label for="value">Valor da despesa</label>
+        <input
+          type="text"
+          id="value"
+          placeholder="R$ 99.99"
+          formControlName="value"
+        />
+        <label for="date">Data</label>
+        <input type="date" id="date" formControlName="date" />
+        <label for="">Categoria</label>
+        <select formControlName="category" *ngFor="let category of categories">
+          <option value="" selected>Selecione uma categoria</option>
+          <option value="item.id" *ngFor="let item of category">
+            {{ item.name }}
+          </option>
+        </select>
+        <label for="description">Descrição</label>
+        <textarea
+          id="description"
+          placeholder="Digite a descrição da despesa.."
+          formControlName="description"
+        ></textarea>
+        <button class="btn__new">Cadastrar</button>
+      </form>
+    </section>
+  </div>
+</main>

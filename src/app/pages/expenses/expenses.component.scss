@@ -1,0 +1,78 @@
+@import "../../../config-scss/rem-calc.scss";
+
+:host {
+  .main {
+    background-color: var(--black-color);
+    height: 100%;
+    margin-left: 13vw;
+    width: 87vw;
+  }
+
+  .container {
+    margin: 0 auto;
+    max-width: rem-calc(900);
+    width: 100%;
+  }
+
+  .form__container {
+    margin-top: rem-calc(80);
+  }
+
+  .form__container h3 {
+    color: var(--text-1-color);
+    font-size: rem-calc(28);
+  }
+
+  .form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: rem-calc(50);
+
+    input,
+    select,
+    textarea {
+      background-color: var(--primary-color);
+      border: 1px solid var(--border-color);
+      border-radius: rem-calc(5);
+      color: var(--text-3-color);
+      font-size: rem-calc(16);
+      outline: none;
+      padding: rem-calc(8);
+      transition: 0.2s ease-in-out;
+      width: 100%;
+      margin: 10px 0;
+
+      &:focus {
+        background-color: var(--text-1-color);
+        box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.6);
+      }
+
+      &::placeholder {
+        color: var(--text-3-color);
+      }
+    }
+
+    label {
+      color: var(--text-2-color);
+    }
+  }
+
+  .btn__new {
+    background-color: var(--green-1-color);
+    border: none;
+    border-radius: rem-calc(4);
+    color: var(--text-1-color);
+    cursor: pointer;
+    font-size: rem-calc(14);
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    margin-top: rem-calc(20);
+    padding: rem-calc(10);
+
+    &:hover {
+      box-shadow: 0 0 0 3px var(--green-3-color);
+      transition: 0.2s;
+    }
+  }
+}
