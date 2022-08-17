@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/services/auth.service';
 import { Router } from '@angular/router';
 import { NotifierService } from 'angular-notifier';
+import { User } from 'src/app/models/user';
 
 @Component({
   selector: 'signin',
@@ -15,6 +16,8 @@ export class SigninComponent implements OnInit {
     password: [null, Validators.required],
   });
 
+  userData: Partial<User> | undefined = {};
+
   constructor(
     private readonly authService: AuthService,
     private readonly formBuilder: FormBuilder,
@@ -26,7 +29,8 @@ export class SigninComponent implements OnInit {
 
   onSubmit(): void {
     this.authService.login(this.form.value).subscribe({
-      next: (response) => {
+      next: (response: User) => {
+        this.userData = response.data;
         this.saveTokenIntoLocalStorage(JSON.stringify(response));
         this.router.navigate(['/home']);
         this.form.reset();
