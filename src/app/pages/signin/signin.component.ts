@@ -16,7 +16,7 @@ export class SigninComponent implements OnInit {
     password: [null, Validators.required],
   });
 
-  userData: Partial<User> | undefined = {};
+  isLoading: boolean = false;
 
   constructor(
     private readonly authService: AuthService,
@@ -25,13 +25,27 @@ export class SigninComponent implements OnInit {
     private readonly notifier: NotifierService
   ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    const token = localStorage.getItem('finapp.token');
+    if (token) {
+      this.isLoading = true;
+      this.authService.refreshToken().subscribe({
+        next: (response: any) => {
+          localStorage.setItem('finapp.token', response.token);
+          this.isLoading = false;
+        },
+        error: (error) => {
+          localStorage.clear();
+          this.isLoading = false;
+        },
+      });
+    }
+  }
 
   onSubmit(): void {
     this.authService.login(this.form.value).subscribe({
-      next: (response: User) => {
-        this.userData = response.data;
-        this.saveTokenIntoLocalStorage(JSON.stringify(response));
+      next: (response: any) => {
+        localStorage.setItem('finapp.token', response.token);
         this.router.navigate(['/home']);
         this.form.reset();
       },
@@ -39,9 +53,5 @@ export class SigninComponent implements OnInit {
         this.notifier.notify('error', response.error.message);
       },
     });
-  }
-
-  saveTokenIntoLocalStorage(token: string): void {
-    localStorage.setItem('x-access-token', token);
   }
 }
