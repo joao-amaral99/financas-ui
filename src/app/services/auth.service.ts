@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { User } from '../models/user';
 import { Observable } from 'rxjs';
 
@@ -7,16 +7,25 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class AuthService {
-  private readonly API: string = 'http://localhost:3000/api/v1/users';
   private readonly API_LOGIN: string = 'http://localhost:3000/api/auth/login';
+  private readonly API_TOKEN: string =
+    'http://localhost:3000/token/refresh-token';
 
   constructor(private http: HttpClient) {}
 
-  create(data: User): Observable<User> {
-    return this.http.post<User>(this.API, data);
-  }
-
   login(data: Partial<User>): Observable<User> {
     return this.http.post<User>(this.API_LOGIN, data);
+  }
+
+  public composeHeaders() {
+    const token = localStorage.getItem('finapp.token');
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+    return headers;
+  }
+
+  refreshToken() {
+    return this.http.post(`${this.API_TOKEN}`, null, {
+      headers: this.composeHeaders(),
+    });
   }
 }
