@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UserService } from 'src/app/services/user.service';
 import { CategoriesService } from '../categories/categories.service';
 
 @Component({
@@ -16,24 +17,35 @@ export class ExpensesComponent implements OnInit {
   });
 
   categories: any = [];
+  user: any = [];
 
   constructor(
     private readonly formBuilder: FormBuilder,
-    private readonly categoriesService: CategoriesService
+    private readonly categoriesService: CategoriesService,
+    private readonly userService: UserService
   ) {}
 
   ngOnInit(): void {
     this.getCategories();
+    this.getUsers();
+  }
+
+  getUsers() {
+    this.userService.getUser().subscribe({
+      next: (response) => (this.user = response),
+      error: (error) => error.message,
+    });
   }
 
   getCategories() {
     this.categoriesService.getAllCategories().subscribe({
       next: (response) => this.categories.push(response),
-      error: (error) => console.log(error),
+      error: (error) => error.message,
     });
   }
 
   onSubmit() {
     console.log(this.form.value);
+    console.log(this.user[0].id);
   }
 }
